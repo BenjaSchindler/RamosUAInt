@@ -1,66 +1,20 @@
-import React, { useState, useEffect } from "react";
-
-import MovieCard from "./Components/MovieCard";
-import SearchIcon from "./search.svg";
 import "./App.css";
-import Navbar from "./Components/Navbar";
-import Main from "./Components/Main";
 
-const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
+import { Route, Routes } from "react-router-dom";
+import Nav from "./Components/Nav";
+import Home from "./Routes/Home";
+import Blogs from "./Routes/Blogs";
 
 const App = () => {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [movies, setMovies] = useState([]);
-
-  useEffect(() => {
-    searchMovies("Batman");
-  }, []);
-
-  const searchMovies = async (title: string) => {
-    const response = await fetch(`${API_URL}&s=${title}`);
-    const data = await response.json();
-
-    setMovies(data.Search);
-  };
-
   return (
-    <div className="app">
-      <Navbar />
-      <Main />
-      <div className="grid grid-cols-4 gap-4">
-        <h1 className="flex justify-center">MovieLand</h1>
-
-        <div className="">
-          <input
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            placeholder="Search for movies"
-            onKeyPress={(event) => {
-              if (event.key === "Enter") {
-                searchMovies(searchTerm);
-              }
-            }}
-          />
-          <img
-            src={SearchIcon}
-            alt="search"
-            onClick={() => searchMovies(searchTerm)}
-          />
-        </div>
-
-        {movies?.length > 0 ? (
-          <div className="">
-            {movies.map((movie) => (
-              <MovieCard movie={movie} />
-            ))}
-          </div>
-        ) : (
-          <div className="">
-            <h2>No movies found</h2>
-          </div>
-        )}
-      </div>
-    </div>
+    <>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="Home" element={<Home />} />
+        <Route path="Blogs" element={<Blogs />} />
+      </Routes>
+    </>
   );
 };
 
