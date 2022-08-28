@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import MovieCard from "../Components/MovieCard";
 import SearchIcon from "../search.svg";
 
-const API_URL = "http://www.omdbapi.com?apikey=b6003d8a";
+const API_URL = "http://www.omdbapi.com?apikey=ae74a185";
 
 const Home: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -19,7 +19,7 @@ const Home: React.FC = () => {
 
     setMovies(data.Search);
   };
-
+  console.log(movies)
   return (
     <main style={{ padding: "1rem 0" }}>
       <div className="grid grid-cols-4 gap-4">
