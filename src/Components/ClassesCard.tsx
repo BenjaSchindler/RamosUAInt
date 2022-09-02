@@ -29,9 +29,9 @@ const ClassesCard: React.FC<ClassesProps> = ({
     return (
       <div
         onClick={() => setExpanded(false)}
-        className={`'w-full p-6 max-w-sm ' ${color_type} ' rounded-lg shadow-md ' ${color_type2} ' h-96 border border-gray-300 py-4 flex flex-col justify-start transition-all duration-500 cursor-pointer'`}
+        className={`'w-full p-6 max-w-sm ' ${color_type} '  shadow-md ' ${color_type2} ' h-96 border border-gray-300 py-4 flex flex-col justify-start transition-all duration-500 cursor-pointer col-span-2'`}
       >
-        <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 transition-all duration-500 cursor-pointer">
+        <h5 style={textstyle} className="mb-2 text-2xl font-bold tracking-tight text-gray-900 transition-all duration-500 cursor-pointer">
           {title}
         </h5>
         <p  className="font-normal text-gray-700 transition-all duration-900 cursor-pointer">
@@ -44,7 +44,7 @@ const ClassesCard: React.FC<ClassesProps> = ({
     return (
       <div
         onClick={() => setExpanded(true)}
-        className={`'w-full p-6 max-w-sm ' ${color_type} ' rounded-lg shadow-md ' ${color_type2} ' h-32 border border-gray-300 py-4 flex flex-col justify-between transition-all duration-500 cursor-pointer'`}
+        className={`'w-full p-6 max-w-sm ' ${color_type} ' shadow-md ' ${color_type2} ' h-32 border border-gray-300 py-4 flex flex-wrap justify-between transition-all duration-500 cursor-pointer'`}
       >
         <h5 style={textstyle} className="mb-2 text-xl font-bold tracking-tight text-gray-900 transition-all duration-500 cursor-pointer">
           {title}
