@@ -1,4 +1,4 @@
-import { ramos } from "../Components/HardCode/DataRamos";
+import { ramos2 } from "../Components/HardCode/DataRamos";
 
 
 const Malla: React.FC = () => {
@@ -22,13 +22,36 @@ const Malla: React.FC = () => {
             {/* Divison por Año (Añadir cuantos ramos son y cuantos años)*/}
             <div className="grid grid-cols-5 gap-4">
                 {/* Semestres y Ramos */}
-                <div className="grid grid-cols-2 gap-2">
+
                 {/* Relleno */}
-                    {ramos?.length > 0 ? (
+                    {ramos2?.length > 0 ? (
                         <>
-                        {ramos.map((ramo) => (
-                            <div className={`${ramo.color_type}  shadow-lg p-6 flex justify-center`}>
-                                <p className="text-gray-700">{ramo.title}</p>
+                        {ramos2.map((ramo) => (
+                            <div className="grid grid-cols-2 gap-2">
+                              <div className="bg-white col-span-2 shadow-lg p-6 flex justify-center">
+                                  <p className="text-gray-700">Año {ramo.año}</p>
+                              </div>
+                              <div className="bg-white shadow-lg p-6 flex justify-center">
+                                  <p className="text-gray-700">Semestre {ramo.sA}</p>
+                              </div>
+                              <div className="bg-white shadow-lg p-6 flex justify-center">
+                                  <p className="text-gray-700">Semestre {ramo.sA+1}</p>
+                              </div>
+
+                                {ramo.semestre1.map((ramoS1) => (
+                                  <>
+                                  <div className={`${ramoS1.color_type}  shadow-lg p-6 flex justify-center`}>
+                                      <p className="text-gray-700">{ramoS1.title}</p>
+                                  </div>
+                                  </>
+                                ))}
+                                {ramo.semestre2.map((ramoS2) => (
+                                  <>
+                                  <div className={`${ramoS2.color_type}  shadow-lg p-6 flex justify-center`}>
+                                      <p className="text-gray-700">{ramoS2.title}</p>
+                                  </div>
+                                  </>
+                                ))}
                             </div>
                         ))}
                         </>
@@ -59,7 +82,6 @@ const Malla: React.FC = () => {
                         <p className="text-gray-700">Calculo II</p>
                     </div>
                     */}
-                </div>
 
             </div>
 
