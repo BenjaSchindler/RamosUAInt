@@ -20,13 +20,14 @@ const Malla: React.FC = () => {
         {/* Ramos */}
         <div className="row-span-2">
             {/* Divison por Año (Añadir cuantos ramos son y cuantos años)*/}
-            <div className="grid grid-cols-5 gap-4">
+            <div className="grid grid-cols-5 gap-4 mx-12">
                 {/* Semestres y Ramos */}
 
                 {/* Relleno */}
                     {ramos2?.length > 0 ? (
                         <>
                         {ramos2.map((ramo) => (
+                              /* Año y Semestres */
                             <div className="grid grid-cols-2 gap-2">
                               <div className="bg-white col-span-2 shadow-lg p-6 flex justify-center">
                                   <p className="text-gray-700">Año {ramo.año}</p>
@@ -37,18 +38,20 @@ const Malla: React.FC = () => {
                               <div className="bg-white shadow-lg p-6 flex justify-center">
                                   <p className="text-gray-700">Semestre {ramo.sA+1}</p>
                               </div>
-
+                                    {/* Semestres por separado */}
                                 {ramo.semestre1.map((ramoS1) => (
                                   <>
-                                  <div className={`${ramoS1.color_type}  shadow-lg p-6 flex justify-center`}>
-                                      <p className="text-gray-700">{ramoS1.title}</p>
+                                  {console.log(ramoS1.title)}
+                                  <div className={`${ramoS1.color_type} col-start-1 border border-gray-500 h-24 w-34 flex items-center justify-center`}>
+                                      <p className="text-gray-700 text-l text-center">{ramoS1.title}</p>
                                   </div>
                                   </>
                                 ))}
                                 {ramo.semestre2.map((ramoS2) => (
                                   <>
-                                  <div className={`${ramoS2.color_type}  shadow-lg p-6 flex justify-center`}>
-                                      <p className="text-gray-700">{ramoS2.title}</p>
+                                  {console.log(ramoS2.title)}
+                                  <div className={`${ramoS2.color_type} col-start-2 border border-gray-500 h-24 w-34 flex items-center justify-center`}>
+                                      <p className="text-gray-700 text-l text-center">{ramoS2.title}</p>
                                   </div>
                                   </>
                                 ))}
